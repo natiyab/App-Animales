@@ -1,0 +1,75 @@
+
+<nav class="navbar">
+  <div class="navbar-contenido">
+    <a class="brand" href="#">
+      <span class="brand-icon">🐾</span>
+      <span class="brand-title">Natalia Arce - Mundo Animal</span>
+    </a>
+    <ul class="nav-links">
+      
+      <li><a href="#">Galería</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="catalogo">
+
+  <header class="encabezado">
+
+    <h1>🐾 Catálogo de razas de perros</h1>
+
+  
+  </header>
+
+  <p *ngIf="cargando" class="mensaje">
+    🐶 Cargando animales...
+  </p>
+
+  <p *ngIf="error" class="error">
+    {{ error }}
+  </p>
+
+  <section
+    class="galeria"
+    *ngIf="animales.length > 0"
+  >
+
+    <article
+      class="tarjeta"
+      *ngFor="let animal of animales"
+    >
+
+      <div class="imagen-container">
+
+        <img
+          [src]="animal.imagen"
+          [alt]="animal.raza"
+        >
+
+      </div>
+
+      <div class="informacion">
+
+        <span>🐶 Raza</span>
+
+        <h2>
+          {{ animal.raza }}
+        </h2>
+
+        <p class="descripcion">
+          {{ animal.descripcion }}
+        </p>
+
+        <div class="detalle">
+
+          ❤️ Perro de compañía
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+</div>
